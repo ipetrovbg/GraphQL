@@ -91,6 +91,7 @@ return [
         'default' => [
             'query' => [
                 'users' => 'App\GraphQL\Query\UsersQuery',
+                'news' => 'App\GraphQL\Query\NewsQuery'
             ],
             'mutation' => [
 
@@ -114,7 +115,8 @@ return [
     // ]
     //
     'types' => [
-        'User' => 'App\GraphQL\Type\UserType'
+        'User' => 'App\GraphQL\Type\UserType',
+        'News' => 'App\GraphQL\Type\NewsType'
     ],
 
     // This callable will received every Error objects for each errors GraphQL catch.

@@ -24,7 +24,11 @@ class UsersQuery extends Query
         return [
             'id' => ['name' => 'id', 'type' => Type::int()],
             'email' => ['name' => 'email', 'type' => Type::string()],
-            'name' => ['name' => 'name', 'type' => Type::string()]
+            'name' => ['name' => 'name', 'type' => Type::string()],
+            'news' => [
+                'name' => 'news',
+                'type' => GraphQL::type('News')
+            ]
         ];
     }
 
@@ -43,4 +47,6 @@ class UsersQuery extends Query
             return User::all();
         }
     }
+
+   
 }

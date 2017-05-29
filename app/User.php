@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function news() {
+        /*
+        get all news by user 1
+        App\User::find(1)->news*/
+        return $this->hasMany('App\News');
+    }
 }
