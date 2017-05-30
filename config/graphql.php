@@ -96,7 +96,7 @@ return [
             'mutation' => [
 
             ]
-        ]
+        ],
     ],
 
     // The types available in the application. You can then access it from the
@@ -134,7 +134,7 @@ return [
     // @ https://github.com/webonyx/graphql-php#security
     // for details. Disabled by default.
     'security' => [
-        'query_max_complexity' => null,
-        'query_max_depth' => null
+        // 'query_max_complexity' => null,
+        // 'query_max_depth' => null
     ]
 ];

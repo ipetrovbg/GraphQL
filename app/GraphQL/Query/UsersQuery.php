@@ -7,6 +7,7 @@ use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use GraphQL;
 use App\User;
+use Auth;
 
 class UsersQuery extends Query
 {
@@ -34,6 +35,7 @@ class UsersQuery extends Query
 
     public function resolve($root, $args)
     {
+
         if(isset($args['id']))
         {
             return User::where('id' , $args['id'])->get();
@@ -48,5 +50,5 @@ class UsersQuery extends Query
         }
     }
 
-   
+
 }
