@@ -6,6 +6,7 @@ use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as GraphQLType;
 use GraphQL;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 
 class UserType extends GraphQLType
@@ -22,10 +23,6 @@ class UserType extends GraphQLType
 				'type' => Type::nonNull(Type::string()),
 				'description' => 'The id of the user'
 			],
-      'me' => [
-        'type' => GraphQL::type('User'),
-				'description' => 'The authenticated user'
-      ],
 			'email' => [
 				'type' => Type::string(),
 				'description' => 'The email of user'
@@ -53,11 +50,6 @@ class UserType extends GraphQLType
 	protected function resolveEmailField($root, $args)
 	{
 		return strtolower($root->email);
-	}
-
-  protected function resolveMeField($root, $args)
-	{
-		return Auth::user();
 	}
 
 	protected function resolveNewsField($root, $args)
