@@ -19,10 +19,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/logout', function (Request $request) {
-    // $request->user()->token()->revoke();
-    // Auth::guard('api')->user();
-    // $request->session()->flush();
-    // $request->session()->regenerate();
     $token = DB::table('oauth_access_tokens')->where('user_id', Auth::user()->id)->first();
     DB::table('oauth_refresh_tokens')->where('access_token_id', $token->id)->delete();
     DB::table('oauth_access_tokens')->where('user_id', Auth::user()->id)->delete();
